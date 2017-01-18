@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://gitlab.com/paulsmith/vue-clock/issues"
   },
-  "homepage": "https://gitlab.com/paulsmith/vue-clock#README"
+  "homepage": "https://gitlab.com/paulsmith/vue-clock#README",
+  "devDependencies": {
+    "eslint": "^3.13.1",
+    "eslint-config-vue": "^2.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-vue": "^1.0.0"
+  }
 }
