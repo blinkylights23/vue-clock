@@ -1,0 +1,24 @@
+# local
+local~
+*~
+.vscode
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Intermediate storage
+tmp
+.tmp
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Generated folders
+build
+dist
+release
