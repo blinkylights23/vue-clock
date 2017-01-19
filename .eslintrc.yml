@@ -1,3 +1,10 @@
-extends: vue
+root: true
+extends:
+  - airbnb
+  - vue
 plugins:
   - import
+rules:
+  semi:
+    - 1
+    - "always"
