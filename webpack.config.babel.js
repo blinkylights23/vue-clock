@@ -32,7 +32,16 @@ module.exports = {
         }]
       },
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.vue$/, loader: 'vue-loader' }
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: [
+              { loader: 'stylus-loader' },
+              { loader: 'pug-loader' }
+          ]
+        }
+      }
     ]
   },
   devServer: {

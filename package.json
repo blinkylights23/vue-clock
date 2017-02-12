@@ -23,10 +23,12 @@
   },
   "homepage": "https://gitlab.com/paulsmith/vue-clock#README",
   "devDependencies": {
-    "babel-core": "^6.21.0",
+    "babel-cli": "^6.22.2",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.22.0",
     "chai": "^3.5.0",
+    "css-loader": "^0.26.1",
     "eslint": "^3.13.1",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-config-vue": "^2.0.1",
@@ -36,7 +38,17 @@
     "html-webpack-plugin": "^2.26.0",
     "json-loader": "^0.5.4",
     "mocha": "^3.2.0",
+    "pug": "^2.0.0-beta6",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.4.0",
+    "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.1.10",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
+  },
+  "dependencies": {
+    "moment": "^2.17.1",
+    "raf-funcs": "^0.5.1",
+    "vue": "^2.1.10"
   }
 }
