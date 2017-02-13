@@ -9,6 +9,4 @@ describe('A test suite', () => {
   it('should be 12', () => expect(12).to.equal(12));
   it('should be 13', function() {expect(13).to.equal(13)});
   it('should pass', () => expect(true).to.be.true);
-  it('should pass', () => expect(true).to.be.true);
-  it('should fail', () => expect(true).to.be.false);
 });

@@ -1,6 +1,6 @@
 <template lang="pug">
 
-span.vueClock-countdown {{ currentCd }}
+span.vueClock-countdown {{ formattedCountdown() }}
 
 </template>
 
@@ -8,13 +8,14 @@ span.vueClock-countdown {{ currentCd }}
 <script>
 
 import interval from 'raf-funcs/interval';
+import template from 'es6-template-strings';
 import moment from 'moment';
 
 export default {
   props: {
     format: {
       type: String,
-      default: 'y[y] d[d] h[h] m[m] s[s]'
+      default: '${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s'
     },
     end: {
       type: String
@@ -22,26 +23,39 @@ export default {
   },
   data () {
     return {
-      currentCd: moment.duration(0, 'seconds')
+      countdown: moment.duration(0, 'seconds')
     }
   },
   methods: {
-    updateCd: function() {
+    update: function() {
       let cd = moment.duration(this.endDt - moment());
-      console.log(cd.humanize());
       return cd;
+    },
+    formattedCountdown: function() {
+      return template(this.format, {
+        countdown: this.countdown,
+        humanize: this.countdown.humanize(),
+        milliseconds: this.countdown.milliseconds(),
+        seconds: this.countdown.seconds(),
+        minutes: this.countdown.minutes(),
+        hours: this.countdown.hours(),
+        days: this.countdown.days(),
+        weeks: this.countdown.weeks(),
+        months: this.countdown.months(),
+        years: this.countdown.years(),
+      });
     }
   },
   beforeCreate: function() {
     if (!this.end) {
-      this.endDt = moment('2020-01-20 12:30');
+      this.endDt = moment('2021-01-20 12:30');
     } else {
       this.endDt = moment(end);
     }
   },
   beforeMount: function() {
     this.intervalRef = interval(() => {
-      this.currentCd = this.updateCd();
+      this.countdown = this.update();
     }, 1000);
   },
   destroyed: function() {

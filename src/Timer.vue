@@ -1,7 +1,6 @@
 <template lang="pug">
 
-p.vueClock
-  | Vue Clock: {{ currentDt }}
+span.vueClock-timer {{ formattedTimer() }}
 
 </template>
 
@@ -9,42 +8,50 @@ p.vueClock
 <script>
 
 import interval from 'raf-funcs/interval';
+import template from 'es6-template-strings';
 import moment from 'moment';
-
-function getLocale () {
-  if (navigator.languages && navigator.languages.length) {
-    return navigator.languages[0]
-  } else {
-    return navigator.language;
-  }
-}
 
 export default {
   props: {
     format: {
       type: String,
-      default: 'MMMM Do YYYY, h:mm:ss a'
-    },
-    locale: {
-      type: String,
-      default: getLocale
+      default: '${days}d ${hours}h ${minutes}m ${seconds}s'
     }
   },
   data () {
     return {
-      currentDt: this.updateDt()
+      timer: moment.duration(0, 'seconds')
     }
   },
   methods: {
-    updateDt: function() {
-      let dt = moment().format(this.format);
-      return dt;
+    update: function() {
+      return this.timer.add(1, 's');
+    },
+    formattedTimer: function() {
+      return template(this.format, {
+        timer: this.timer,
+        humanize: this.timer.humanize(),
+        milliseconds: this.timer.milliseconds(),
+        seconds: this.timer.seconds(),
+        minutes: this.timer.minutes(),
+        hours: this.timer.hours(),
+        days: this.timer.days(),
+        weeks: this.timer.weeks(),
+        months: this.timer.months(),
+        years: this.timer.years(),
+      });
+    },
+    start: function() {},
+    pause: function() {},
+    reset: function() {
+      this.timer = moment.duration(0, 'seconds');
     }
   },
+  beforeCreate: function() {
+  },
   beforeMount: function() {
-    moment.locale(this.locale);
     this.intervalRef = interval(() => {
-      this.currentDt = this.updateDt();
+      this.timer = this.update();
     }, 1000);
   },
   destroyed: function() {
@@ -57,7 +64,7 @@ export default {
 
 <style lang="stylus" scoped>
 
-.vueClock
-  color: green
+.vueClock-timer
+  color: blue
 
 </style>
