@@ -41,6 +41,9 @@ export default {
         years: this.timer.years(),
       });
     },
+    isRunning: function() {
+      return this.timer.started;
+    },
     start: function() {},
     pause: function() {},
     reset: function() {
