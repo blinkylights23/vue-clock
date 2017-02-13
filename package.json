@@ -5,12 +5,14 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack -p",
+    "commit": "git-cz",
     "serve": "webpack-dev-server -d",
-    "test": "mocha"
+    "test": "mocha",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/paulsmith/vue-clock.git"
+    "url": "https://github.com/blinkylights23/vue-clock.git"
   },
   "keywords": [
     "vue",
@@ -20,16 +22,18 @@
   "author": "Paul Smith <paul@paulsmith.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/paulsmith/vue-clock/issues"
+    "url": "https://github.com/blinkylights23/vue-clock/issues"
   },
-  "homepage": "https://gitlab.com/paulsmith/vue-clock#README",
+  "homepage": "https://github.com/blinkylights23/",
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.18.0",
     "babel-register": "^6.22.0",
     "chai": "^3.5.0",
+    "commitizen": "2.9.5",
     "css-loader": "^0.26.1",
+    "cz-conventional-changelog": "1.2.0",
     "eslint": "^3.13.1",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-config-vue": "^2.0.1",
@@ -40,6 +44,7 @@
     "json-loader": "^0.5.4",
     "mocha": "^3.2.0",
     "pug": "^2.0.0-beta6",
+    "semantic-release": "^6.3.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.4.0",
     "vue-loader": "^10.0.2",
@@ -51,5 +56,16 @@
     "moment": "^2.17.1",
     "raf-funcs": "^0.5.1",
     "vue": "^2.1.10"
+  },
+  "config": {
+    "babel": {
+      "presets": [
+        "es2015",
+        "stage-2"
+      ]
+    },
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
