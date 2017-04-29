@@ -1,11 +1,23 @@
 <!DOCTYPE>
 <html>
   <head>
+    <style lang="text/css">
+
+#components {
+  margin-bottom: 30px;
+}
+
+    </style>
   </head>
   <body>
     <h1>Vue Clock</h1>
     <div id="components">
       <div id="clock">Clock: <clock /></div>
+      <div id="timer">Timer: <timer /></div>
+      <div id="countdown">Countdown: <countdown /></div>
+    </div>
+    <div id="components-args">
+      <div id="clock">Clock: <clock format="h:mm:ss a Z" /></div>
       <div id="timer">Timer: <timer /></div>
       <div id="countdown">Countdown: <countdown /></div>
     </div>

@@ -1,6 +1,6 @@
 {
   "name": "vue-clock",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0-development",
   "description": "A Vue.js plugin for clocks, timers and countdowns",
   "main": "dist/index.js",
   "scripts": {

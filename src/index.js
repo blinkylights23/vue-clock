@@ -12,3 +12,13 @@ const vm = new Vue({
     countdown: CountdownComponent
   }
 })
+
+const vm2 = new Vue({
+  el: '#components-args',
+  data: {},
+  components: {
+    clock: ClockComponent,
+    timer: TimerComponent,
+    countdown: CountdownComponent
+  }
+})
