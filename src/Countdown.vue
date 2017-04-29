@@ -46,11 +46,11 @@ export default {
       });
     }
   },
-  beforeCreate: function() {
+  created: function() {
     if (!this.end) {
       this.endDt = moment('2021-01-20 12:30');
     } else {
-      this.endDt = moment(end);
+      this.endDt = moment(this.end);
     }
   },
   beforeMount: function() {
