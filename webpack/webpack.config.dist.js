@@ -1,15 +1,15 @@
-require('webpack');
+const webpack = require('webpack');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const vueConfig = require('./vue-loader.config');
 
 module.exports = {
-  context: path.join(__dirname, '/src'),
+  context: path.join(__dirname, '../src'),
   entry: {
-    'vue-clock': './index.js'
+    'vue-clock': './dist.js'
   },
   output: {
-    path: path.join(__dirname, '/build'),
+    path: path.join(__dirname, '../dist'),
     filename: '[name].min.js'
   },
   resolve: {
@@ -18,8 +18,8 @@ module.exports = {
     }
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html'
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
     })
   ],
   module: {
@@ -36,16 +36,8 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: [
-              { loader: 'stylus-loader' },
-              { loader: 'pug-loader' }
-          ]
-        }
+        options: vueConfig
       }
     ]
-  },
-  devServer: {
-    contentBase: path.join(__dirname, '/build')
   }
 };

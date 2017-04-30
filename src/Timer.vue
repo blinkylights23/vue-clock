@@ -8,14 +8,14 @@ span.vueClock-timer {{ formattedTimer() }}
 <script>
 
 import interval from 'raf-funcs/interval';
-import template from 'es6-template-strings';
+import template from 'lodash.template';
 import moment from 'moment';
 
 export default {
   props: {
     format: {
       type: String,
-      default: '${days}d ${hours}h ${minutes}m ${seconds}s'
+      default: '<%= days %>d <%= hours %>h <%= minutes %>m <%= seconds %>s'
     }
   },
   data () {
@@ -28,7 +28,8 @@ export default {
       return this.timer.add(1, 's');
     },
     formattedTimer: function() {
-      return template(this.format, {
+      var compiled = template(this.format);
+      var formatted = compiled({
         timer: this.timer,
         humanize: this.timer.humanize(),
         milliseconds: this.timer.milliseconds(),
@@ -40,6 +41,7 @@ export default {
         months: this.timer.months(),
         years: this.timer.years(),
       });
+      return formatted;
     },
     isRunning: function() {
       return this.timer.started;

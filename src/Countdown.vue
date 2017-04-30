@@ -8,7 +8,7 @@ span.vueClock-countdown {{ formattedCountdown() }}
 <script>
 
 import interval from 'raf-funcs/interval';
-import template from 'es6-template-strings';
+import template from 'lodash.template';
 import moment from 'moment';
 
 export default {
@@ -32,7 +32,8 @@ export default {
       return cd;
     },
     formattedCountdown: function() {
-      return template(this.format, {
+      var compiled = template(this.format);
+      var formatted = compiled({
         countdown: this.countdown,
         humanize: this.countdown.humanize(),
         milliseconds: this.countdown.milliseconds(),
@@ -44,6 +45,7 @@ export default {
         months: this.countdown.months(),
         years: this.countdown.years(),
       });
+      return formatted;
     }
   },
   created: function() {

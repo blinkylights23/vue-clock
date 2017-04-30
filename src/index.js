@@ -11,14 +11,16 @@ const vm = new Vue({
     timer: TimerComponent,
     countdown: CountdownComponent
   }
-})
+});
 
 const vm2 = new Vue({
   el: '#components-args',
-  data: {},
+  data: {
+    timerFormat: '<%= humanize %>'
+  },
   components: {
     clock: ClockComponent,
     timer: TimerComponent,
     countdown: CountdownComponent
   }
-})
+});

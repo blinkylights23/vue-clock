@@ -1,4 +1,5 @@
 .*
-dist/*.map
-lib
+build
 test
+dist/*.map
+webpack
