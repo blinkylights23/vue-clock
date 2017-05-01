@@ -3,9 +3,12 @@
   "version": "0.0.0-development",
   "description": "A Vue.js plugin for clocks, timers and countdowns",
   "main": "dist/vue-clock.min.js",
+  "files": [
+    "src"
+  ],
   "scripts": {
-    "build": "webpack -p --config webpack/webpack.config.dev.js",
-    "build:prod": "webpack -p --config webpack/webpack.config.dist.js",
+    "build:dev": "webpack -p --config webpack/webpack.config.dev.js",
+    "build": "webpack -p --config webpack/webpack.config.dist.js",
     "commit": "git-cz",
     "serve": "webpack-dev-server -d --config webpack/webpack.config.dev.js",
     "test": "mocha",
@@ -57,7 +60,6 @@
   },
   "dependencies": {
     "autoprefixer": "^6.7.7",
-    "extract-text-webpack-plugin": "^2.1.0",
     "lodash.template": "^4.4.0",
     "moment": "^2.17.1",
     "raf-funcs": "^0.5.1",
