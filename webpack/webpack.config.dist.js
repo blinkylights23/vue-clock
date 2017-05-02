@@ -6,11 +6,13 @@ const vueConfig = require('./vue-loader.config');
 module.exports = {
   context: path.join(__dirname, '../src'),
   entry: {
-    'vue-clock': './dist.js'
+    'vue-clock': './index.js'
   },
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].min.js'
+    filename: '[name].min.js',
+    library: 'vueClock',
+    libraryTarget: 'umd'
   },
   resolve: {
     alias: {
@@ -18,8 +20,14 @@ module.exports = {
     }
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
     new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false }
+      compress: { warnings: false },
+      output: { comments: false },
+      sourceMap: false
     }),
     new webpack.DefinePlugin({
       'process.env': {

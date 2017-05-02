@@ -7,7 +7,7 @@ const vueConfig = require('./vue-loader.config');
 module.exports = {
   context: path.join(__dirname, '../src'),
   entry: {
-    'vue-clock': './index.js'
+    'vue-clock': './dev.js'
   },
   output: {
     path: path.join(__dirname, '../build'),
