@@ -16,7 +16,8 @@ export default {
     format: {
       type: String,
       default: '<%= days %>d <%= hours %>h <%= minutes %>m <%= seconds %>s'
-    }
+    },
+    paused: false
   },
   data () {
     return {
@@ -25,7 +26,10 @@ export default {
   },
   methods: {
     update: function() {
-      return this.timer.add(1, 's');
+      if (!this.paused) {
+        this.timer = this.timer.add(1, 's');
+      }
+      return this.timer;
     },
     formattedTimer: function() {
       var compiled = template(this.format);
@@ -46,8 +50,12 @@ export default {
     isRunning: function() {
       return this.timer.started;
     },
-    start: function() {},
-    pause: function() {},
+    start: function() {
+      this.pause = false;
+    },
+    pause: function() {
+      this.pause = true;
+    },
     reset: function() {
       this.timer = moment.duration(0, 'seconds');
     }

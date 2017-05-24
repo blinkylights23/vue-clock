@@ -29,6 +29,10 @@ export default {
   methods: {
     update: function() {
       let cd = moment.duration(this.endDt - moment());
+      this.$emit('countdownTick', cd);
+      if (cd.asSeconds() <= 0) {
+        this.$emit('countdownEnd', cd);
+      }
       return cd;
     },
     formattedCountdown: function() {

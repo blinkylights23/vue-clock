@@ -12,14 +12,14 @@
   <body>
     <h1>Vue Clock</h1>
     <div id="components">
-      <div id="clock">Clock: <clock /></div>
-      <div id="timer">Timer: <timer /></div>
-      <div id="countdown">Countdown: <countdown /></div>
+      <div id="clock">Clock: <clock ref="clock1" /></div>
+      <div id="timer">Timer: <timer ref="timer1" /></div>
+      <div id="countdown">Countdown: <countdown ref="countdown1" end="2017-05-24 08:22" /></div>
     </div>
     <div id="components-args">
-      <div id="clock">Clock: <clock format="h:mm:ss a Z" /></div>
-      <div id="timer">Timer: <timer :format="timerFormat" /></div>
-      <div id="countdown">Countdown: <countdown /></div>
+      <div id="clock">Clock: <clock ref="clock2" format="h:mm:ss a Z" /></div>
+      <div id="timer">Timer: <timer ref="timer2" :format="timerFormat" /></div>
+      <div id="countdown">Countdown: <countdown ref="countdown2" /></div>
     </div>
   </body>
 </html>

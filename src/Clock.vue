@@ -37,8 +37,10 @@ export default {
   methods: {
     updateDt: function() {
       let dt = moment().format(this.format);
+      this.$emit('clockTick', dt);
       return dt;
-    }
+    },
+    getLocale
   },
   beforeMount: function() {
     moment.locale(this.locale);
