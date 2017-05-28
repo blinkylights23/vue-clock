@@ -28,6 +28,7 @@ export default {
     update: function() {
       if (!this.paused) {
         this.timer = this.timer.add(1, 's');
+        this.$emit('timerTick', timer);
       }
       return this.timer;
     },

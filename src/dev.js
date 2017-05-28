@@ -4,14 +4,12 @@ import TimerComponent from './Timer.vue';
 import CountdownComponent from './Countdown.vue';
 
 
-const timer1 = TimerComponent();
-
 const vm = new Vue({
   el: '#components',
   data: {},
   components: {
     clock: ClockComponent,
-    timer: timer1,
+    timer: TimerComponent,
     countdown: CountdownComponent
   },
   mounted: function() {
@@ -23,6 +21,9 @@ const vm = new Vue({
     });
     this.$refs.countdown1.$once('countdownEnd', cd => {
       console.log(' >>> countdownEnd <<<');
+    });
+    this.$refs.timer1.$on('timerTick', dt => {
+      console.log('timerTick');
     });
   }
 });
