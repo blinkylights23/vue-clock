@@ -12,7 +12,7 @@ const vm = new Vue({
     timer: TimerComponent,
     countdown: CountdownComponent
   },
-  mounted: function() {
+  mounted() {
     this.$refs.clock1.$on('clockTick', dt => {
       console.log('clockTick');
     });
