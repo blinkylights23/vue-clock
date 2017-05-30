@@ -4,17 +4,9 @@
   "description": "A Vue.js plugin for clocks, timers and countdowns",
   "main": "src/index.js",
   "files": [
-    "src"
+    "src",
+    "dist"
   ],
-  "scripts": {
-    "build:dev": "webpack -p --config webpack/webpack.config.dev.js",
-    "build": "webpack -p --config webpack/webpack.config.dist.js",
-    "commit": "git-cz",
-    "serve": "webpack-dev-server -d --config webpack/webpack.config.dev.js",
-    "test:watch": "webpack -w --config webpack/webpack.config.test.js",
-    "test": "webpack --config webpack/webpack.config.test.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/blinkylights23/vue-clock.git"
@@ -29,7 +21,16 @@
   "bugs": {
     "url": "https://github.com/blinkylights23/vue-clock/issues"
   },
-  "homepage": "https://github.com/blinkylights23/",
+  "homepage": "https://github.com/blinkylights23/vue-clock",
+  "scripts": {
+    "build:dev": "webpack -p --config webpack/webpack.config.dev.js",
+    "build": "webpack -p --config webpack/webpack.config.dist.js",
+    "commit": "git-cz",
+    "serve": "webpack-dev-server -d --config webpack/webpack.config.dev.js",
+    "test:watch": "webpack -w --config webpack/webpack.config.test.js",
+    "test": "webpack --config webpack/webpack.config.test.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-loader": "^7.0.0",
