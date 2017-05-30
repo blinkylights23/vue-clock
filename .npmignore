@@ -1,5 +1,5 @@
 .*
 build
 test
-dist/*.map
-webpack
+webpack/
+
