@@ -6,24 +6,36 @@ import CountdownComponent from './Countdown.vue';
 
 const vm = new Vue({
   el: '#components',
-  data: {},
+  data: {
+    timerPause: false
+  },
   components: {
     clock: ClockComponent,
     timer: TimerComponent,
     countdown: CountdownComponent
   },
+  methods: {
+    startTimer() {
+      // console.log('start');
+      this.timerPause = false;
+    },
+    pauseTimer() {
+      // console.log('pause');
+      this.timerPause = true;
+    }
+  },
   mounted() {
     this.$refs.clock1.$on('clockTick', dt => {
-      console.log('clockTick');
+      // console.log('clockTick');
     });
     this.$refs.countdown1.$on('countdownTick', cd => {
-      console.log('countdownTick');
+      // console.log('countdownTick');
     });
     this.$refs.countdown1.$once('countdownEnd', cd => {
-      console.log(' >>> countdownEnd <<<');
+      // console.log(' >>> countdownEnd <<<');
     });
     this.$refs.timer1.$on('timerTick', dt => {
-      console.log('timerTick');
+      // console.log('timerTick');
     });
   }
 });

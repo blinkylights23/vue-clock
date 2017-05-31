@@ -48,15 +48,6 @@ export default {
       });
       return formatted;
     },
-    isRunning: function() {
-      return this.timer.started;
-    },
-    start: function() {
-      this.pause = false;
-    },
-    pause: function() {
-      this.pause = true;
-    },
     reset: function() {
       this.timer = moment.duration(0, 'seconds');
     }

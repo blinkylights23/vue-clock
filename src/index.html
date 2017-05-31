@@ -13,13 +13,18 @@
     <h1>Vue Clock</h1>
     <div id="components">
       <div id="clock">Clock: <clock ref="clock1" /></div>
-      <div id="timer">Timer: <timer ref="timer1" /></div>
-      <div id="countdown">Countdown: <countdown ref="countdown1" end="2017-05-24 08:22" /></div>
+      <div id="countdown">Countdown: <countdown ref="countdown1" end="2018-05-24 08:22" /></div>
+      <div id="timer">
+        <span>Timer: <timer ref="timer1" v-bind:paused="timerPause" /></span>
+        <span v-if="timerPause"><em>paused</em></span>
+      </div>
+      <button v-on:click="pauseTimer">pause</button>
+      <button v-on:click="startTimer">start</button>
     </div>
     <div id="components-args">
       <div id="clock">Clock: <clock ref="clock2" format="h:mm:ss a Z" /></div>
-      <div id="timer">Timer: <timer ref="timer2" :format="timerFormat" /></div>
       <div id="countdown">Countdown: <countdown ref="countdown2" /></div>
+      <div id="timer">Timer: <timer ref="timer2" :format="timerFormat" /></div>
     </div>
   </body>
 </html>
