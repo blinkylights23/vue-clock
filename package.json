@@ -2,10 +2,9 @@
   "name": "vue-clock",
   "version": "0.0.0-development",
   "description": "A Vue.js plugin for clocks, timers and countdowns",
-  "main": "src/index.js",
+  "main": "dist/vue-clock.min.js",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "repository": {
     "type": "git",
