@@ -7,9 +7,12 @@ notifications:
 node_js:
   - '7'
   - '6'
+env:
+  - NODE_ENV=production
 before_script:
   - npm prune
 script:
+  - npm run build
   - npm run test
 after_success:
   - npm run semantic-release

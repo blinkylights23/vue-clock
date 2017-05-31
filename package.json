@@ -4,6 +4,7 @@
   "description": "A Vue.js plugin for clocks, timers and countdowns",
   "main": "dist/vue-clock.min.js",
   "files": [
+    "src",
     "dist"
   ],
   "repository": {
